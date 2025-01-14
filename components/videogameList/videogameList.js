@@ -1,13 +1,13 @@
 angular.module('videogameList', [])
-.component('videogameList', {
-    templateUrl: '/VideogameFinds/components/videogameList/videogameList.html',
+.component('videogame-list', {
+    templateUrl: 'components/videogameList/videogameList.html',
     controller: function($scope, $http){
-        
-    $http.get(`https://www.cheapshark.com/api/1.0/games?title=batman`)
-        .then((response) => {
-            $scope.videogames = response.data;
-            console.log("hello")
-            
-        })
+        console.log("inside component")
+        $http.get('https://www.cheapshark.com/api/1.0/games?title=batman')
+            .then((response) => {
+                $scope.videogames = response.data;
+                console.log($scope.videogames)
+                
+            })
     }
 })
