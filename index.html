@@ -1,10 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="videogameFinds">
     <head>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script> 
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular-route.js"></script>  
     </head>
     <body>
+        <a href="/VideogameFinds">Home</a>
 
+        <div ng-view></div>
+
+        <script src="/VideogameFinds/app.js"></script>
+        <script src="/VideogameFinds/components/videogameList/videogameList.js"></script>
     </body>
 </html>
