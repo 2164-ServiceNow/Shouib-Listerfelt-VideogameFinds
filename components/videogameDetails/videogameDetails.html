@@ -36,6 +36,9 @@
         <p ng-if="steamRatingText">Steam rating: {{steamRatingText}}</p>
         <p ng-if="!steamId">Sorry, We Could Not Find a Link to Steam!</p>
         <a ng-if="steamId" href="https://store.steampowered.com/app/{{steamId}}">Buy It On Steam!</a>
+        <a ng-if="metacriticLink" href="https://www.metacritic.com{{metacriticLink}}">
+            <img ng-src="https://upload.wikimedia.org/wikipedia/commons/f/f2/Metacritic_M.png" width="30px" height="30px" alt="Metacritic logo that redirects you to metacritic page." />
+        </a>    
         <br>
         <button ng-click="hideInfo()">Close</button>
     </div>
