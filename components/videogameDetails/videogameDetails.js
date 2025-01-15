@@ -11,6 +11,7 @@ angular.module('videogameDetails', [])
                 $scope.retailPrice = newVideogame.gameInfo.retailPrice
                 $scope.steamRatingText = newVideogame.gameInfo.steamRatingText
                 $scope.steamId = newVideogame.gameInfo.steamAppID
+                $scope.metacriticLink = newVideogame.gameInfo.metacriticLink
                 $scope.showDetails = true;
             })
 
