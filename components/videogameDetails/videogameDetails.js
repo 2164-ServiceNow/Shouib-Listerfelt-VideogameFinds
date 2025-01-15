@@ -8,8 +8,9 @@ angular.module('videogameDetails', [])
             $scope.$watch('$ctrl.videogame', function(newVideogame){
                 $scope.name = newVideogame.gameInfo.name
                 $scope.imageUrl = newVideogame.gameInfo.thumb
-                $scope.salePrice = newVideogame.gameInfo.salePrice
+                $scope.retailPrice = newVideogame.gameInfo.retailPrice
                 $scope.steamRatingText = newVideogame.gameInfo.steamRatingText
+                $scope.steamId = newVideogame.gameInfo.steamAppID
                 $scope.showDetails = true;
             })
 
