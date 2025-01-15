@@ -3,7 +3,8 @@
 angular.module('videogameFinds', [
     'ngRoute',
     'videogameList',
-    'searchBar'
+    'searchBar',
+    'videogameDetails'
   ])
   .config(function($locationProvider, $routeProvider) {
     $routeProvider
