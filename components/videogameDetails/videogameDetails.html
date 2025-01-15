@@ -32,9 +32,11 @@
     <div id="videogameDetailsContent">
         <img ng-src="{{imageUrl}}"/>
         <h1>Videogame Title: {{name}}</h1>
-        <p>Sale price: {{salePrice}}</p>
+        <p>Retail price: {{retailPrice}}</p>
         <p ng-if="steamRatingText">Steam rating: {{steamRatingText}}</p>
-
+        <p ng-if="!steamId">Sorry, We Could Not Find a Link to Steam!</p>
+        <a ng-if="steamId" href="https://store.steampowered.com/app/{{steamId}}">Buy It On Steam!</a>
+        <br>
         <button ng-click="hideInfo()">Close</button>
     </div>
 </div>
