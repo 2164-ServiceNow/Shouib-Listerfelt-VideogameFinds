@@ -11,14 +11,18 @@ angular.module('videogameList', [])
 
             $scope.searchValue = newQuery
 
-            $http.get(`https://www.cheapshark.com/api/1.0/deals?title=${newQuery}`)
+            $http.get(`https://www.cheapshark.com/api/1.0/games?title=${newQuery}`)
             .then((response) => {
                 $scope.videogames = response.data;
-              
+                //console.log($scope.videogames)
             })
         })
         $scope.selectVideogame = function(videogame){
-            console.log(videogame)
+            $http.get(`https://www.cheapshark.com/api/1.0/deals?id=${videogame.cheapestDealID}`)
+            .then((response) => {
+                $scope.selectedVideogame = response.data;
+                //console.log($scope.selectedVideogame)
+            })
         }
     }
 })
