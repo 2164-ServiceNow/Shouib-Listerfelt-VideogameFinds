@@ -9,10 +9,10 @@
 
 </style>
 
-
+<videogame-details videogame="selectedVideogame"></videogame-details>
 <br>
 <div class="videogameBlock" ng-repeat="videogame in videogames" ng-click="selectVideogame(videogame)">
     <img src="{{videogame.thumb}}" width="100%" height="50%"/>
     {{videogame.external}}
-    <videogame-details videogame="selectedVideogame"></videogame-details>
+    
 </div>
