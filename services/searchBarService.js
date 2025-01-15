@@ -4,7 +4,6 @@ angular.module('videogameFinds')
 
         this.setQuery = function(query){
             this.query = query
-            console.log(`${query} from setQuery in the Service!`);
         }
 
         this.getQuery = function(){
