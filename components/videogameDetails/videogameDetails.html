@@ -33,6 +33,9 @@
         <img ng-src="{{imageUrl}}"/>
         <h1>Videogame Title: {{name}}</h1>
         <p>Retail price: {{retailPrice}}</p>
+        
+        <button ng-click="callWishlistAdder(gameID, testVideogame)">Add to Wishlist</button>
+
         <p ng-if="steamRatingText">Steam rating: {{steamRatingText}}</p>
         <p ng-if="!steamId">Sorry, We Could Not Find a Link to Steam!</p>
         <a ng-if="steamId" href="https://store.steampowered.com/app/{{steamId}}">Buy It On Steam!</a>

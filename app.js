@@ -4,12 +4,16 @@ angular.module('videogameFinds', [
     'ngRoute',
     'videogameList',
     'searchBar',
-    'videogameDetails'
+    'videogameDetails',
+    'wishlist'
   ])
   .config(function($locationProvider, $routeProvider) {
     $routeProvider
     .when("/", {
       templateUrl: "pages/main.html"
+    })
+    .when("/wishlist", {
+      templateUrl: "pages/wishlist.html"
     })
 
     $locationProvider.html5Mode({
