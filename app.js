@@ -6,13 +6,18 @@ angular.module('videogameFinds', [
     'videogameList',
     'searchBar',
     'videogameDetails',
-    'wishlist'
+    'wishlist',
+    'videogameDealsList',
+    'priceFilter'
   ])
   //Sets up configurations, routeProvider sets up the routes to different pages
   .config(function($locationProvider, $routeProvider) {
     $routeProvider
     .when("/", {
       templateUrl: "pages/main.html"
+    })
+    .when("/deals", {
+      templateUrl: "pages/deals.html"
     })
     .when("/wishlist", {
       templateUrl: "pages/wishlist.html"
