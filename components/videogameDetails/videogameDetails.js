@@ -6,7 +6,7 @@ angular.module('videogameDetails', [])
         bindings: {
             videogame: '<'  //Pass data down from parent to child (videogameDetails.js) and does not allow for the child to modify it
         },
-        controller: function($scope, wishlistAddService){
+        controller: function($scope, $http, wishlistAddService){
 
             //When the videogame binding is updated with data, then this watch is called, and saves all of the data from videogame
             //videogame binding is saved in newVideogame
@@ -14,12 +14,28 @@ angular.module('videogameDetails', [])
                 $scope.name = newVideogame.gameInfo.name
                 $scope.gameID = newVideogame.gameInfo.gameID
                 $scope.imageUrl = newVideogame.gameInfo.thumb
+                $scope.salePrice = newVideogame.gameInfo.salePrice
                 $scope.retailPrice = newVideogame.gameInfo.retailPrice
                 $scope.steamRatingText = newVideogame.gameInfo.steamRatingText
                 $scope.steamId = newVideogame.gameInfo.steamAppID
                 $scope.metacriticLink = newVideogame.gameInfo.metacriticLink
                 $scope.showDetails = true
                 $scope.testVideogame = newVideogame
+                $scope.storeID = newVideogame.gameInfo.storeID
+
+                //Get request returns a list of stores that this api pulls game data from
+                $http.get("https://www.cheapshark.com/api/1.0/stores")
+                    .then((response) => {
+                        $scope.listOfStores = response.data;
+
+                        //Find the store name by looking through the list of stores and matching the storeID's, then save the stores name from the response data
+                        for(let key in $scope.listOfStores){
+                            if($scope.listOfStores[key].storeID === $scope.storeID){
+                                $scope.storeName = $scope.listOfStores[key].storeName
+                            }
+                        }
+
+                    })
             })
 
             //Hides the modal by setting showDetails to be false

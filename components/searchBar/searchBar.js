@@ -10,7 +10,6 @@ angular.module('searchBar', [])
             //Custom search function that calls the searchBarService's setQuery function using the searchValue 
             $scope.search = function (){
                 searchBarService.setQuery($scope.searchValue)
-
             }
         }
     })
