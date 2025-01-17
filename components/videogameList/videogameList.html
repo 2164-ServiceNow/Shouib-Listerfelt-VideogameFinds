@@ -9,7 +9,9 @@
 
 </style>
 
+<!-- This element can see all properties in videogameList.js and is saving the data from the selectedVideogame property into its binding -->
 <videogame-details videogame="selectedVideogame"></videogame-details>
+
 <br>
 <div class="videogameBlock" ng-repeat="videogame in videogames" ng-click="selectVideogame(videogame)">
     <img src="{{videogame.thumb}}" width="100%" height="50%"/>

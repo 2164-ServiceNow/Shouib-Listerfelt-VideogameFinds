@@ -9,8 +9,12 @@
 
 </style>
 
+<!-- When page initializes, we load the wishlist data -->
 <p ng-init="loadWishlist()"></p>
+
+<!-- Still working on finding a way to have a pop up modal show up upon clicking like in videogameList -->
 <!-- <videogame-details videogame="selectedVideogame"></videogame-details> -->
+
 <br>
 <div class="videogameBlock" ng-repeat="videogame in wishlistArray" >
     <img src="{{videogame.gameInfo.thumb}}" width="100%" height="50%"/>

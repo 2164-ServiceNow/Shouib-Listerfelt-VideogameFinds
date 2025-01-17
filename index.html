@@ -11,11 +11,12 @@
         <a href="/">Home</a>
         <a href="/wishlist">Wishlist</a>
 
-        <div ng-view></div>
+        <!-- Allows us to dynamically update the page anytime we swap over to another route (different webpages) -->
+        <div ng-view></div> 
 
         <script src="app.js"></script>
-        <script src="components/videogameList/videogameList.js"></script>
         <script src="components/searchBar/searchBar.js"></script>
+        <script src="components/videogameList/videogameList.js"></script>
         <script src="components/videogameDetails/videogameDetails.js"></script>
         <script src="components/wishlist/wishlist.js"></script>
         <script src="services/wishlistAddService.js"></script>
