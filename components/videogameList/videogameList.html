@@ -1,11 +1,11 @@
 <style>
-    .videogameBlock{
+    /* .videogameBlock{
         border-style: solid;
         display: inline-block;
         width: 300px; 
         height: 200px;
         text-align: center;
-    }
+    } */
 
 </style>
 
@@ -13,8 +13,11 @@
 <videogame-details videogame="selectedVideogame"></videogame-details>
 
 <br>
-<div class="videogameBlock" ng-repeat="videogame in videogames" ng-click="selectVideogame(videogame)">
-    <img src="{{videogame.thumb}}" width="100%" height="50%"/>
-    {{videogame.external}}
-    
+<div class="d-flex flex-wrap">
+    <div class="videogameBlock border border-dark w-25" ng-repeat="videogame in videogames" ng-click="selectVideogame(videogame)">
+        <img src="{{videogame.thumb}}" class="img-fluid mw-25 mh-25 mx-auto d-block"/>
+        <p class="text-center">{{videogame.external}}</p>
+        
+    </div>
 </div>
+
