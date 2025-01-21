@@ -9,7 +9,8 @@ angular.module('videogameFinds', [
     'wishlist',
     'videogameDealsList',
     'priceFilter',
-    'onSaleList'
+    'onSaleList',
+    'randomGame'
   ])
   //Sets up configurations, routeProvider sets up the routes to different pages
   .config(function($locationProvider, $routeProvider) {
@@ -22,6 +23,9 @@ angular.module('videogameFinds', [
     })
     .when("/wishlist", {
       templateUrl: "pages/wishlist.html"
+    })
+    .when("/random-game",{
+      templateUrl: "pages/randomGame.html"
     })
 
     //According to documentation: Use the $locationProvider to configure how the application deep linking paths are stored

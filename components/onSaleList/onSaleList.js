@@ -20,7 +20,6 @@ angular.module('onSaleList', [])
                 .then((response) => {
                     $scope.selectedVideogame = response.data;
                 })
-                
             }
         }
     })
