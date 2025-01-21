@@ -8,7 +8,8 @@ angular.module('videogameFinds', [
     'videogameDetails',
     'wishlist',
     'videogameDealsList',
-    'priceFilter'
+    'priceFilter',
+    'onSaleList'
   ])
   //Sets up configurations, routeProvider sets up the routes to different pages
   .config(function($locationProvider, $routeProvider) {
