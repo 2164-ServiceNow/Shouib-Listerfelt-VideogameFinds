@@ -9,7 +9,7 @@ angular.module('onSaleList', [])
             $scope.searchValue = ""
             $scope.priceValue = ""
 
-            $http.get("https://www.cheapshark.com/api/1.0/deals?onSale=true&pageSize=10")
+            $http.get("https://www.cheapshark.com/api/1.0/deals?onSale=true&pageSize=8")
             .then((response => {
                 $scope.videogames = response.data;
             }))
