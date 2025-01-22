@@ -1,23 +1,14 @@
-<style>
-    /* .videogameBlock{
-        border-style: solid;
-        display: inline-block;
-        width: 300px; 
-        height: 200px;
-        text-align: center;
-    } */
-    
+<div class="border border-success border-5 container mt-5 mb-5">
+    <h1>Games Currently on Sale!</h1>
+    <!-- This element can see all properties in videogameList.js and is saving the data from the selectedVideogame property into its binding -->
+    <videogame-details videogame="selectedVideogame"></videogame-details>
 
-</style>
-
-<h1>Games Currently on Sale!</h1>
-<!-- This element can see all properties in videogameList.js and is saving the data from the selectedVideogame property into its binding -->
-<videogame-details videogame="selectedVideogame"></videogame-details>
-
-<br>
-<div class="d-flex flex-wrap">
-    <div class="videogameBlock border border-dark w-25 " ng-repeat="videogame in videogames" ng-click="selectVideogame(videogame)">
-        <img src="{{videogame.thumb}}" class="img-fluid mw-25 mh-25 mx-auto d-block"/>
-        <p class="text-center">{{videogame.title}}</p>
+    <div class="grid">
+        <div class="row">
+            <div class="videogameBlock border border-dark col" ng-repeat="videogame in videogames" ng-click="selectVideogame(videogame)">
+                <img src="{{videogame.thumb}}" class="img-fluid mx-auto d-block"/>
+                <p class="text-center">{{videogame.title}}</p>
+            </div>
+        </div>
     </div>
 </div>

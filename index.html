@@ -9,10 +9,15 @@
     </head>
     <body>
         <h1>Videogame Finds</h1>
-        <a href="/">Home</a>
-        <a href="/deals">Deals</a>
-        <a href="/wishlist">Wishlist</a>
-        <a href="/random-game">Checkout a Random Game!</a>
+        <nav class="navbar navbar-expand-sm navbar-light bg-light mb-3">
+            <div class="navbar-nav">
+                <a class="nav-link" href="/">Home</a>
+                <a class="nav-link" href="/deals">Deals</a>
+                <a class="nav-link" href="/wishlist">Wishlist</a>
+                <a class="nav-link" href="/random-game">Checkout a Random Game!</a>
+            </div>
+          </nav>          
+        
 
         <!-- Allows us to dynamically update the page anytime we swap over to another route (different webpages) -->
         <div ng-view></div> 
