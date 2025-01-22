@@ -6,7 +6,7 @@ angular.module('videogameDetails', [])
         bindings: {
             videogame: '<'  //Pass data down from parent to child (videogameDetails.js) and does not allow for the child to modify it
         },
-        controller: function($scope, $http, wishlistAddService){
+        controller: function($scope, $http, $location, wishlistAddService){
 
             //When the videogame binding is updated with data, then this watch is called, and saves all of the data from videogame
             //videogame binding is saved in newVideogame
@@ -20,8 +20,13 @@ angular.module('videogameDetails', [])
                 $scope.steamId = newVideogame.gameInfo.steamAppID
                 $scope.metacriticLink = newVideogame.gameInfo.metacriticLink
                 $scope.showDetails = true
-                $scope.testVideogame = newVideogame
+                $scope.videogame = newVideogame
                 $scope.storeID = newVideogame.gameInfo.storeID
+
+                $scope.fromWishlist = false;    //Flag that checks to see if page is currently on /wishlist. If it is, we won't want the add wishlist button showing
+                if($location.path() == "/wishlist"){
+                    $scope.fromWishlist = true;
+                }
 
                 //Get request returns a list of stores that this api pulls game data from
                 $http.get("https://www.cheapshark.com/api/1.0/stores")
