@@ -16,10 +16,10 @@ angular.module('wishlist', [])
                 }
             }
 
-            //Still working on adding implementation to show videogame details like in videogameList
-            // $scope.selectVideogame = function(videogame){
-            //     $scope.selectedVideogame = videogame
-            // }
+            //Expands modal for videogameDetails
+            $scope.selectVideogame = function(videogame){
+                $scope.selectedVideogame = videogame
+            }
 
             //Calls the wishlistRemoveService function and then reloads the page again to dynamically update the wishlist when you remove a game
             $scope.callWishlistRemover = function(gameID){
