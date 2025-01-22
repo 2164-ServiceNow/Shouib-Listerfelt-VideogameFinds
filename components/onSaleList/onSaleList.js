@@ -2,14 +2,12 @@ angular.module('onSaleList', [])
     .component('onSaleList', {
         templateUrl: 'components/onSaleList/onSaleList.html', //Assigns how this component will look 
 
-        controller: function($scope, $http, searchBarService, priceSliderService){ // This is dependency injection
+        controller: function($scope, $http){ // This is dependency injection
             //Custom properties for when the element is instantiated
             $scope.videogames = ""
             $scope.selectedVideogame = ""
-            $scope.searchValue = ""
-            $scope.priceValue = ""
 
-            $http.get("https://www.cheapshark.com/api/1.0/deals?onSale=true&pageSize=8")
+            $http.get("https://www.cheapshark.com/api/1.0/deals?onSale=true&pageSize=8&pageNumber=10")
             .then((response => {
                 $scope.videogames = response.data;
             }))
@@ -19,6 +17,7 @@ angular.module('onSaleList', [])
                 $http.get(`https://www.cheapshark.com/api/1.0/deals?id=${videogame.dealID}`)
                 .then((response) => {
                     $scope.selectedVideogame = response.data;
+                    console.log(response.data)
                 })
             }
         }

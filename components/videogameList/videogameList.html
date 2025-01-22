@@ -3,7 +3,7 @@
 <div class="container mt-3">
     <div class="d-flex flex-wrap grid row justify-content-center">
         <div class="videogameBlock border border-dark col-2 m-1" ng-repeat="videogame in videogames" ng-click="selectVideogame(videogame)">
-            <img src="{{videogame.thumb}}" class="img-fluid mw-25 mh-25 mx-auto d-block"/>
+            <img ng-src="{{videogame.thumb}}" class="img-fluid mw-25 mh-25 mx-auto d-block"/>
             <p class="text-center">{{videogame.external}}</p>
         </div>
     </div>
