@@ -6,7 +6,7 @@
     <div class="grid">
         <div class="row">
             <div class="videogameBlock border border-dark col" ng-repeat="videogame in videogames" ng-click="selectVideogame(videogame)">
-                <img src="{{videogame.thumb}}" class="img-fluid mx-auto d-block"/>
+                <img ng-src="{{videogame.thumb}}" class="img-fluid mx-auto d-block"/>
                 <p class="text-center">{{videogame.title}}</p>
             </div>
         </div>

@@ -37,7 +37,8 @@
         <p>Sale price: {{salePrice}}</p>
         <p>Store: {{storeName}}</p>
         <!-- When the button is clicked, we call the callWishlistAdder function which then calls the service function to save this game to your wishlist-->
-        <button ng-hide="fromWishlist" ng-click="callWishlistAdder(gameID, videogame)">Add to Wishlist</button>
+        <button ng-if="!fromWishlist && !savedInWishlist" ng-click="callWishlistAdder(gameID, videogame)">Add to Wishlist</button>
+        <button ng-if="!fromWishlist && savedInWishlist" ng-click="callWishlistRemover(gameID)">Remove from Wishlist</button>
 
         <!-- If statements will display all information given that they exist (could also use ng-show/ng-hide accordingly) -->
         <p ng-if="steamRatingText">Steam rating: {{steamRatingText}}</p>

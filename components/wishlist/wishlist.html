@@ -6,20 +6,10 @@
 <div class="container mt-3">
     <div class="d-flex flex-wrap grid row justify-content-center">
         <div class="videogameBlock border border-dark col-2 m-1" ng-repeat="videogame in wishlistArray" ng-click="selectVideogame(videogame)">
-            <img src="{{videogame.gameInfo.thumb}}" class="img-fluid mw-25 mh-25 mx-auto d-block"/>
+            <img ng-src="{{videogame.gameInfo.thumb}}" class="img-fluid mw-25 mh-25 mx-auto d-block"/>
             <p class="text-center">{{videogame.gameInfo.name}}</p>
             <button ng-click="callWishlistRemover(videogame.gameInfo.gameID)" class="mx-auto mt-auto d-block ">Remove from wishlist</button>
             
         </div>
     </div>
 </div>
-
-
-<!-- <div class="container mt-3">
-    <div class="d-flex flex-wrap grid row justify-content-center">
-        <div class="videogameBlock border border-dark col-2 m-1" ng-repeat="videogame in videogames" ng-click="selectVideogame(videogame)">
-            <img src="{{videogame.thumb}}" class="img-fluid mw-25 mh-25 mx-auto d-block"/>
-            <p class="text-center">{{videogame.external}}</p>
-        </div>
-    </div>
-</div> -->

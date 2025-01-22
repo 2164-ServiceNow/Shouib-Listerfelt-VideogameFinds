@@ -2,7 +2,7 @@ angular.module('randomGame', [])
     .component('randomGame', {
         templateUrl: 'components/randomGame/randomGame.html', //Assigns how this component will look 
 
-        controller: function($scope, $http, wishlistAddService){ // This is dependency injection
+        controller: function($scope, $http, wishlistService){ // This is dependency injection
             //Custom properties for when the element is instantiated
             $scope.name = ""
             $scope.gameID = ""
@@ -18,7 +18,7 @@ angular.module('randomGame', [])
             
             //Calls the wishlistService with the gameID and newVideogame JSON
             $scope.callWishlistAdder = function(){
-                wishlistAddService.wishlistAdder($scope.gameID, $scope.videogame);
+                wishlistService.wishlistAdder($scope.gameID, $scope.videogame);
             }
 
             //Searches for a new game using a random number generator and saves all data accordingly

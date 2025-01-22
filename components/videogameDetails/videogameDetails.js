@@ -6,13 +6,12 @@ angular.module('videogameDetails', [])
         bindings: {
             videogame: '<'  //Pass data down from parent to child (videogameDetails.js) and does not allow for the child to modify it
         },
-        controller: function($scope, $http, $location, wishlistAddService){
+        controller: function($scope, $http, $location, wishlistService){
 
             //When the videogame binding is updated with data, then this watch is called, and saves all of the data from videogame
             //videogame binding is saved in newVideogame
             $scope.$watch('$ctrl.videogame', function(newVideogame){
-                
-                if(newVideogame !== ""){
+                if(newVideogame != undefined && newVideogame.gameInfo != undefined){
                     $scope.name = newVideogame.gameInfo.name
                     $scope.gameID = newVideogame.gameInfo.gameID
                     $scope.imageUrl = newVideogame.gameInfo.thumb
@@ -28,8 +27,13 @@ angular.module('videogameDetails', [])
                     if($location.path() == "/wishlist"){
                         $scope.fromWishlist = true;
                     }
+
+                    $scope.savedInWishlist = false;
+                    if(wishlistService.inWishlist($scope.gameID)){
+                        $scope.savedInWishlist = true;
+                    }
                 }
-                
+
                 //Get request returns a list of stores that this api pulls game data from
                 $http.get("https://www.cheapshark.com/api/1.0/stores")
                     .then((response) => {
@@ -50,9 +54,14 @@ angular.module('videogameDetails', [])
                 $scope.showDetails = false;
             }
 
-            //Calls the wishlistAddService with the gameID and newVideogame JSON
+            //Calls the wishlistService with the gameID and newVideogame JSON
             $scope.callWishlistAdder = function(gameID, newVideogame){
-                wishlistAddService.wishlistAdder(gameID, newVideogame);
+                wishlistService.wishlistAdder(gameID, newVideogame);
+            }
+
+            //Calls the wishlistService function and then reloads the page again to dynamically update the wishlist when you remove a game
+            $scope.callWishlistRemover = function(gameID){
+                wishlistService.wishlistRemover(gameID)
             }
 
         }
