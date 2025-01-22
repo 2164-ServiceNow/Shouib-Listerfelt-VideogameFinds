@@ -11,23 +11,25 @@ angular.module('videogameDetails', [])
             //When the videogame binding is updated with data, then this watch is called, and saves all of the data from videogame
             //videogame binding is saved in newVideogame
             $scope.$watch('$ctrl.videogame', function(newVideogame){
-                $scope.name = newVideogame.gameInfo.name
-                $scope.gameID = newVideogame.gameInfo.gameID
-                $scope.imageUrl = newVideogame.gameInfo.thumb
-                $scope.salePrice = newVideogame.gameInfo.salePrice
-                $scope.retailPrice = newVideogame.gameInfo.retailPrice
-                $scope.steamRatingText = newVideogame.gameInfo.steamRatingText
-                $scope.steamId = newVideogame.gameInfo.steamAppID
-                $scope.metacriticLink = newVideogame.gameInfo.metacriticLink
-                $scope.showDetails = true
-                $scope.videogame = newVideogame
-                $scope.storeID = newVideogame.gameInfo.storeID
-
-                $scope.fromWishlist = false;    //Flag that checks to see if page is currently on /wishlist. If it is, we won't want the add wishlist button showing
-                if($location.path() == "/wishlist"){
-                    $scope.fromWishlist = true;
+                
+                if(newVideogame !== ""){
+                    $scope.name = newVideogame.gameInfo.name
+                    $scope.gameID = newVideogame.gameInfo.gameID
+                    $scope.imageUrl = newVideogame.gameInfo.thumb
+                    $scope.salePrice = newVideogame.gameInfo.salePrice
+                    $scope.retailPrice = newVideogame.gameInfo.retailPrice
+                    $scope.steamRatingText = newVideogame.gameInfo.steamRatingText
+                    $scope.steamId = newVideogame.gameInfo.steamAppID
+                    $scope.metacriticLink = newVideogame.gameInfo.metacriticLink
+                    $scope.showDetails = true
+                    $scope.videogame = newVideogame
+                    $scope.storeID = newVideogame.gameInfo.storeID
+                    $scope.fromWishlist = false;    //Flag that checks to see if page is currently on /wishlist. If it is, we won't want the add wishlist button showing
+                    if($location.path() == "/wishlist"){
+                        $scope.fromWishlist = true;
+                    }
                 }
-
+                
                 //Get request returns a list of stores that this api pulls game data from
                 $http.get("https://www.cheapshark.com/api/1.0/stores")
                     .then((response) => {
