@@ -1,10 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="videogameFinds">
     <head>
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script> 
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular-route.js"></script>  
+        <link rel="stylesheet" href="styles.css"/>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.2/angular.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-route/1.8.2/angular-route.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular-resource.js"></script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     </head>
     <body>
+        <h1 style="text-align: center;">Videogame Finds</h1>
+        <nav class="navbar navbar-expand-sm navbar-light bg-light mb-3">
+            <div class="navbar-nav nav-tabs">
+                <a class="nav-item nav-link" href="#!/">Home</a>
+                <a class="nav-item nav-link" href="#!/deals">Deals</a>
+                <a class="nav-item nav-link" href="#!/wishlist">Wishlist</a>
+                <a class="nav-item nav-link" href="#!/random-game">Checkout a Random Game!</a>
+            </div>
+          </nav>          
+        
 
+        <!-- Allows us to dynamically update the page anytime we swap over to another route (different webpages) -->
+        <div ng-view></div> 
+
+        <script src="app.js"></script>
+        <script src="components/searchBar/searchBar.js"></script>
+        <script src="components/videogameList/videogameList.js"></script>
+        <script src="components/videogameDetails/videogameDetails.js"></script>
+        <script src="components/videogameDealsList/videogameDealsList.js"></script>
+        <script src="components/priceFilter/priceFilter.js"></script>
+        <script src="components/wishlist/wishlist.js"></script>
+        <script src="components/onSaleList/onSaleList.js"></script>
+        <script src="components/randomGame/randomGame.js"></script>
+        <script src="services/wishlistService.js"></script>
+        <script src="services/searchBarService.js"></script>
+        <script src="services/priceSliderService.js"></script>
     </body>
 </html>
