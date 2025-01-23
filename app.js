@@ -13,7 +13,7 @@ angular.module('videogameFinds', [
     'randomGame'
   ])
   //Sets up configurations, routeProvider sets up the routes to different pages
-  .config(function($locationProvider, $routeProvider) {
+  .config(function($routeProvider) {
     $routeProvider
     .when("/", {
       templateUrl: "pages/main.html"
@@ -27,10 +27,4 @@ angular.module('videogameFinds', [
     .when("/random-game",{
       templateUrl: "pages/randomGame.html"
     })
-
-    //According to documentation: Use the $locationProvider to configure how the application deep linking paths are stored
-    $locationProvider.html5Mode({
-        enabled:true,
-        requireBase:false
-      });
-    });
+  })
