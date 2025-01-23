@@ -17,7 +17,6 @@ angular.module('onSaleList', [])
                 $http.get(`https://www.cheapshark.com/api/1.0/deals?id=${videogame.dealID}`)
                 .then((response) => {
                     $scope.selectedVideogame = response.data;
-                    console.log(response.data)
                 })
             }
         }
