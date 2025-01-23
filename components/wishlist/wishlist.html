@@ -1,36 +1,15 @@
-<style>
-    /* .videogameBlock{
-        border-style: solid;
-        display: inline-block;
-        width: 300px; 
-        height: 200px;
-        text-align: center;
-    } */
-
-</style>
-
 <!-- When page initializes, we load the wishlist data -->
 <p ng-init="loadWishlist()"></p>
 
 <!-- Still working on finding a way to have a pop up modal show up upon clicking like in videogameList -->
-<!-- <videogame-details videogame="selectedVideogame"></videogame-details> -->
+<videogame-details videogame="selectedVideogame"></videogame-details>
 <div class="container mt-3">
     <div class="d-flex flex-wrap grid row justify-content-center">
-        <div class="videogameBlock border border-dark col-2 m-1" ng-repeat="videogame in wishlistArray" >
-            <img src="{{videogame.gameInfo.thumb}}" class="img-fluid mw-25 mh-25 mx-auto d-block"/>
+        <div class="videogameBlock col-2 m-1" ng-repeat="videogame in wishlistArray" ng-click="selectVideogame(videogame)">
+            <img ng-src="{{videogame.gameInfo.thumb}}" class="img-fluid mw-25 mh-25 mx-auto d-block"/>
             <p class="text-center">{{videogame.gameInfo.name}}</p>
             <button ng-click="callWishlistRemover(videogame.gameInfo.gameID)" class="mx-auto mt-auto d-block ">Remove from wishlist</button>
             
         </div>
     </div>
 </div>
-
-
-<!-- <div class="container mt-3">
-    <div class="d-flex flex-wrap grid row justify-content-center">
-        <div class="videogameBlock border border-dark col-2 m-1" ng-repeat="videogame in videogames" ng-click="selectVideogame(videogame)">
-            <img src="{{videogame.thumb}}" class="img-fluid mw-25 mh-25 mx-auto d-block"/>
-            <p class="text-center">{{videogame.external}}</p>
-        </div>
-    </div>
-</div> -->

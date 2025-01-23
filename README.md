@@ -7,7 +7,7 @@
 *   HTML
 *   CSS
 *   JavaScript
-*   AngularJS (Specify Version)
+*   AngularJS 1.8.2
 *   [CheapShark API](https://apidocs.cheapshark.com/)
 
 **User Stories:** (8 Total - 4 Per Developer)

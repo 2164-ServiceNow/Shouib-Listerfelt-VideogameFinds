@@ -2,7 +2,7 @@ angular.module('randomGame', [])
     .component('randomGame', {
         templateUrl: 'components/randomGame/randomGame.html', //Assigns how this component will look 
 
-        controller: function($scope, $http, wishlistAddService){ // This is dependency injection
+        controller: function($scope, $http, wishlistService){ // This is dependency injection
             //Custom properties for when the element is instantiated
             $scope.name = ""
             $scope.gameID = ""
@@ -15,10 +15,17 @@ angular.module('randomGame', [])
             $scope.storeID = ""
             $scope.storeName = ""
             $scope.videogame = ""
+            
+            //Calls the wishlistService with the gameID and newVideogame JSON
+            $scope.callWishlistAdder = function(){
+                wishlistService.wishlistAdder($scope.gameID, $scope.videogame);
+            }
 
-            let pageNumber = Math.floor(Math.random()*2400)
-                
-            $http.get(`https://www.cheapshark.com/api/1.0/deals?pageSize=1&pageNumber=${pageNumber}`)
+            //Searches for a new game using a random number generator and saves all data accordingly
+            $scope.searchGame = function(){
+                let pageNumber = Math.floor(Math.random()*2400)
+            
+                $http.get(`https://www.cheapshark.com/api/1.0/deals?pageSize=1&pageNumber=${pageNumber}`)
                 .then((response) => {
                     $scope.name = response.data[0].title
                     $scope.retailPrice = response.data[0].normalPrice
@@ -49,12 +56,8 @@ angular.module('randomGame', [])
                             $scope.videogame = response.data;
                         })
                 })
-            
-
-                //Calls the wishlistAddService with the gameID and newVideogame JSON
-                $scope.callWishlistAdder = function(){
-                    wishlistAddService.wishlistAdder($scope.gameID, $scope.videogame);
-                }
             }
+
+            $scope.searchGame();    //Call function for a game to be generated upon page load
         }
-    )
+    })
