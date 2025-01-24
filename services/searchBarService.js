@@ -1,4 +1,4 @@
-//Essentially a class, allows you to create your own properties and functions to use anywhere given that it is passed in the controller
+//Service for the search bar. Has getters and setters for the search query
 angular.module('videogameFinds')
     .service('searchBarService', function(){
         this.query = '';

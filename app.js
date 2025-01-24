@@ -1,6 +1,7 @@
+//Ensures you cannot use undeclared variables, enforcing dependency injection
 'use strict';
 
-//Basically loads in our custom elements by name to use in our html files
+//Basically loads in our components by name to use in our html files
 angular.module('videogameFinds', [
     'ngRoute',
     'videogameList',

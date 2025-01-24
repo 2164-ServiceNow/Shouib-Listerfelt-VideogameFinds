@@ -6,6 +6,7 @@
 
 *   HTML
 *   CSS
+*   Bootstrap 5.3.3
 *   JavaScript
 *   AngularJS 1.8.2
 *   [CheapShark API](https://apidocs.cheapshark.com/)

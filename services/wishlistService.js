@@ -1,4 +1,4 @@
-//Essentially a class, allows you to create your own properties and functions to use anywhere given that it is passed in the controller
+//Service for the add/remove wishlist buttons
 angular.module('videogameFinds')
     .service('wishlistService', function(){
         
@@ -12,6 +12,7 @@ angular.module('videogameFinds')
             localStorage.removeItem(gameID)
         }
 
+        //Checks if a gameID is already in the wishlist, returning true or false respectively
         this.inWishlist = function(gameID){
             if(localStorage.getItem(gameID) === null){
                 return false;

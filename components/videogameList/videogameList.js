@@ -1,9 +1,8 @@
 angular.module('videogameList', [])
     .component('videogameList', {
-        templateUrl: 'components/videogameList/videogameList.html', //Assigns how this component will look 
+        templateUrl: 'components/videogameList/videogameList.html', 
 
-        controller: function($scope, $http, searchBarService){ // This is dependency injection
-            //Custom properties for when the element is instantiated
+        controller: function($scope, $http, searchBarService){ 
             $scope.videogames = ""
             $scope.selectedVideogame = ""
 
@@ -13,14 +12,15 @@ angular.module('videogameList', [])
             }, function(newQuery){ //newQuery is the returned value above
                 $scope.searchValue = newQuery
 
-                //Runs our http get request to display and saves the response data to a property
+                //Runs an http get request, saving a list of games containing newQuery in the title
                 $http.get(`https://www.cheapshark.com/api/1.0/games?title=${newQuery}`)
                 .then((response) => {
                     $scope.videogames = response.data;
                 })
             })
 
-            //Custom function that runs a http get request to an endpoint containing more details of the videogame that is passed in
+            //Runs an http get request, containing more details of the videogame based off of the cheapestDealID
+            //This function will end up displaying the modal by updating the videogameDetails binding, triggering its watch function
             $scope.selectVideogame = function(videogame){
                 $http.get(`https://www.cheapshark.com/api/1.0/deals?id=${videogame.cheapestDealID}`)
                 .then((response) => {

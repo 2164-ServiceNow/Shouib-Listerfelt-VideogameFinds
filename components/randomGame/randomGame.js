@@ -1,9 +1,8 @@
 angular.module('randomGame', [])
     .component('randomGame', {
-        templateUrl: 'components/randomGame/randomGame.html', //Assigns how this component will look 
+        templateUrl: 'components/randomGame/randomGame.html', 
 
-        controller: function($scope, $http, wishlistService){ // This is dependency injection
-            //Custom properties for when the element is instantiated
+        controller: function($scope, $http, wishlistService){ 
             $scope.name = ""
             $scope.gameID = ""
             $scope.imageUrl = ""
@@ -16,7 +15,7 @@ angular.module('randomGame', [])
             $scope.storeName = ""
             $scope.videogame = ""
             
-            //Calls the wishlistService with the gameID and newVideogame JSON
+            //Calls the wishlistService add function using the gameID and videogame JSON
             $scope.callWishlistAdder = function(){
                 wishlistService.wishlistAdder($scope.gameID, $scope.videogame);
             }
@@ -37,19 +36,21 @@ angular.module('randomGame', [])
                     $scope.storeID = response.data[0].storeID  
                     $scope.gameID = response.data[0].gameID
 
-                    //Get request returns a list of stores that this api pulls game data from
+                    // Trying to find what store is selling this game
+                    // Get request returns a list of stores that this api pulls game data from
                     $http.get("https://www.cheapshark.com/api/1.0/stores")
-                    .then((response) => {
-                        $scope.listOfStores = response.data;
+                        .then((response) => {
+                            $scope.listOfStores = response.data;
 
-                        //Find the store name by looking through the list of stores and matching the storeID's, then save the stores name from the response data
-                        for(let key in $scope.listOfStores){
-                            if($scope.listOfStores[key].storeID === response.data[0].storeID){
-                                $scope.storeName = $scope.listOfStores[key].storeName
+                            //Find the store name by looking through the list of stores and matching the storeID's, then save the stores name
+                            for(let key in $scope.listOfStores){
+                                if($scope.listOfStores[key].storeID === response.data[0].storeID){
+                                    $scope.storeName = $scope.listOfStores[key].storeName
+                                }
                             }
-                        }
-                    })
-
+                        })
+                    
+                    //Saving additional/more detailed data of the videogame for the add to wishlist button 
                     $http.get(`https://www.cheapshark.com/api/1.0/deals?id=${response.data[0].dealID}`)
                         .then((response) => {
                             

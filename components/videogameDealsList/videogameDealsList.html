@@ -1,5 +1,6 @@
 <!-- This element can see all properties in videogameList.js and is saving the data from the selectedVideogame property into its binding -->
 <videogame-details videogame="selectedVideogame"></videogame-details>
+
 <div class="container">
     <div class="d-flex flex-wrap grid row justify-content-center ">
         <div class="videogameBlock col-2 m-1" ng-repeat="videogame in videogames" ng-click="selectVideogame(videogame)">

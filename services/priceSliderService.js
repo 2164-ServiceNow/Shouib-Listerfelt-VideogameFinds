@@ -1,4 +1,4 @@
-//Essentially a class, allows you to create your own properties and functions to use anywhere given that it is passed in the controller
+//Service for the price slider on the deals page. Default value set to 60 representing 60 USD. Has getters and setters to update the value
 angular.module('videogameFinds')
     .service('priceSliderService', function(){
         this.query = '60';

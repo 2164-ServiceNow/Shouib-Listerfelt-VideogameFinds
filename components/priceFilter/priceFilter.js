@@ -1,13 +1,12 @@
 angular.module('priceFilter', [])
     .component('priceFilter',{
-        templateUrl: 'components/priceFilter/priceFilter.html', //Assigns how this component will look 
+        templateUrl: 'components/priceFilter/priceFilter.html', 
 
-        //Controller for the component that utilizes scope and the searchBarService
         controller: function PriceFilterCtrl($scope, priceSliderService){
-            //Custom properties for when the element is instantiated
+            //Default display value for the price slider
             $scope.priceValue = 60;
 
-            //Custom search function that calls the searchBarService's setQuery function using the searchValue 
+            //Calls the searchBarService's setQuery function using the priceValue 
             $scope.search = function (){
                 
                 priceSliderService.setQuery($scope.priceValue)
